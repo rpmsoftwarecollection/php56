@@ -35,7 +35,7 @@
 Summary: Package that installs PHP 5.6
 Name: %scl_name
 Version: 5.6
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: GPL-2.0-or-later
 Source0: macros-build
@@ -278,7 +278,8 @@ Group:     Development/Languages
 Requires:  scl-utils
 Requires:  environment-modules
 Requires(post): %{_root_sbindir}/semanage
-Requires(post): %{_root_sbindir}/selinuxenabled
+#Requires(post): %{_root_sbindir}/selinuxenabled
+Requires(post): libselinux-utils
 Provides:  %{?scl_name}-runtime(%{scl_vendor})
 Provides:  %{?scl_name}-runtime(%{scl_vendor})%{?_isa}
 
