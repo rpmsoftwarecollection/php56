@@ -7,7 +7,6 @@
 # Please, preserve the changelog entries
 #
 %global _scl_prefix /opt/remi
-%global scl_prefix /opt/remi
 %global _scl_vendor remi
 %global scl_vendor remi
 %global scl_name_base    php
