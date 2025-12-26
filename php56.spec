@@ -1,4 +1,4 @@
-# remirepo spec file for php56 SCL metapackage
+# remirepo spec file for Requires: %{?scl_prefix} SCL metapackage
 #
 # Copyright (c) 2013-2023 Remi Collet
 # License: CC-BY-SA-4.0
@@ -6,6 +6,10 @@
 #
 # Please, preserve the changelog entries
 #
+%global _scl_prefix /opt/remi
+%global scl_prefix /opt/remi
+%global _scl_vendor remi
+%global scl_vendor remi
 %global scl_name_base    php
 %global scl_name_version 56
 %global scl              %{scl_name_base}%{scl_name_version}
@@ -29,16 +33,15 @@
 # do not produce empty debuginfo package
 %global debug_package %{nil}
 
-Summary:       Package that installs PHP 5.6
-Name:          %scl_name
-Version:       5.6
-Release:       1%{?dist}
-Group:         Development/Languages
-License:       GPL-2.0-or-later
-
-Source0:       macros-build
-Source1:       README
-Source2:       LICENSE
+Summary: Package that installs PHP 5.6
+Name: %scl_name
+Version: 5.6
+Release: 2%{?dist}
+Group: Development/Languages
+License: GPL-2.0-or-later
+Source0: macros-build
+Source1: README
+Source2: LICENSE
 
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: scl-utils-build
@@ -47,10 +50,223 @@ BuildRequires: help2man
 BuildRequires: iso-codes
 BuildRequires: environment-modules
 
-Requires:      %{?scl_prefix}php-common%{?_isa} >= 5.6.31
-Requires:      %{?scl_prefix}php-cli%{?_isa}
-Requires:      %{?scl_prefix}php-pear           >= 1:1.10.5
-Requires:      %{?scl_name}-runtime%{?_isa}      = %{version}-%{release}
+Requires: %{?scl_prefix}php-common%{?_isa} >= 5.6.31
+Requires: %{?scl_prefix}php-cli%{?_isa}
+Requires: %{?scl_prefix}php-pear >= 1:1.10.5
+Requires: %{?scl_name}-runtime%{?_isa} = %{version}-%{release}
+Requires: %{?scl_prefix}-php-pecl-dom-varimport-devel
+Requires: %{?scl_prefix}-php-pecl-judy-devel
+Requires: %{?scl_prefix}-php-pecl-pcsc-devel
+Requires: %{?scl_prefix}-php-pecl-propro-devel
+Requires: %{?scl_prefix}-php-pecl-psr-devel
+Requires: %{?scl_prefix}-php-pecl-raphf-devel
+Requires: %{?scl_prefix}-php-pecl-xmldiff-devel
+Requires: %{?scl_prefix}-php-zephir-parser-devel
+Requires: %{?scl_prefix}-php-zstd-devel
+Requires: %{?scl_prefix}-scldevel
+Requires: %{?scl_prefix}-syspaths
+Requires: %{?scl_prefix}-build
+Requires: %{?scl_prefix}-libzip
+Requires: %{?scl_prefix}-php
+Requires: %{?scl_prefix}-php-bcmath
+Requires: %{?scl_prefix}-php-brotli
+Requires: %{?scl_prefix}-php-channel-horde
+Requires: %{?scl_prefix}-php-dba
+Requires: %{?scl_prefix}-php-dbg
+Requires: %{?scl_prefix}-php-devel
+Requires: %{?scl_prefix}-php-embedded
+Requires: %{?scl_prefix}-php-enchant
+Requires: %{?scl_prefix}-php-fpm
+Requires: %{?scl_prefix}-php-gd
+Requires: %{?scl_prefix}-php-geos
+Requires: %{?scl_prefix}-php-gmp
+Requires: %{?scl_prefix}-php-horde-horde-lz4
+Requires: %{?scl_prefix}-php-imap
+Requires: %{?scl_prefix}-php-interbase
+Requires: %{?scl_prefix}-php-intl
+Requires: %{?scl_prefix}-php-ioncube-loader
+Requires: %{?scl_prefix}-php-ldap
+Requires: %{?scl_prefix}-php-libvirt
+Requires: %{?scl_prefix}-php-libvirt-doc
+Requires: %{?scl_prefix}-php-litespeed
+Requires: %{?scl_prefix}-php-lz4
+Requires: %{?scl_prefix}-php-maxminddb
+Requires: %{?scl_prefix}-php-mbstring
+Requires: %{?scl_prefix}-php-mcrypt
+Requires: %{?scl_prefix}-php-mssql
+Requires: %{?scl_prefix}-php-mysqlnd
+Requires: %{?scl_prefix}-php-odbc
+Requires: %{?scl_prefix}-php-opcache
+Requires: %{?scl_prefix}-php-pdo
+Requires: %{?scl_prefix}-php-pecl-ahocorasick
+Requires: %{?scl_prefix}-php-pecl-amqp
+Requires: %{?scl_prefix}-php-pecl-apcu
+Requires: %{?scl_prefix}-php-pecl-apcu-devel
+Requires: %{?scl_prefix}-php-pecl-apfd
+Requires: %{?scl_prefix}-php-pecl-ares
+Requires: %{?scl_prefix}-php-pecl-awscrt
+Requires: %{?scl_prefix}-php-pecl-bbcode
+Requires: %{?scl_prefix}-php-pecl-binpack
+Requires: %{?scl_prefix}-php-pecl-bitset
+Requires: %{?scl_prefix}-php-pecl-blenc
+Requires: %{?scl_prefix}-php-pecl-cairo
+Requires: %{?scl_prefix}-php-pecl-cairo-devel
+Requires: %{?scl_prefix}-php-pecl-cassandra
+Requires: %{?scl_prefix}-php-pecl-chdb
+Requires: %{?scl_prefix}-php-pecl-couchbase2
+Requires: %{?scl_prefix}-php-pecl-crypto
+Requires: %{?scl_prefix}-php-pecl-datadog-trace
+Requires: %{?scl_prefix}-php-pecl-dbase
+Requires: %{?scl_prefix}-php-pecl-dbus
+Requires: %{?scl_prefix}-php-pecl-dio
+Requires: %{?scl_prefix}-php-pecl-dom-varimport
+Requires: %{?scl_prefix}-php-pecl-doublemetaphone
+Requires: %{?scl_prefix}-php-pecl-druid
+Requires: %{?scl_prefix}-php-pecl-eio
+Requires: %{?scl_prefix}-php-pecl-env
+Requires: %{?scl_prefix}-php-pecl-ev
+Requires: %{?scl_prefix}-php-pecl-event
+Requires: %{?scl_prefix}-php-pecl-expect
+Requires: %{?scl_prefix}-php-pecl-fann
+Requires: %{?scl_prefix}-php-pecl-gearman
+Requires: %{?scl_prefix}-php-pecl-gender
+Requires: %{?scl_prefix}-php-pecl-geoip
+Requires: %{?scl_prefix}-php-pecl-geospatial
+Requires: %{?scl_prefix}-php-magickwand
+Requires: %{?scl_prefix}-php-pecl-gnupg
+Requires: %{?scl_prefix}-php-pecl-graphdat
+Requires: %{?scl_prefix}-php-pecl-grpc
+Requires: %{?scl_prefix}-php-pecl-handlebars
+Requires: %{?scl_prefix}-php-pecl-haru
+Requires: %{?scl_prefix}-php-pecl-hdr-histogram
+Requires: %{?scl_prefix}-php-pecl-hidef
+Requires: %{?scl_prefix}-php-pecl-hprose
+Requires: %{?scl_prefix}-php-pecl-hrtime
+Requires: %{?scl_prefix}-php-pecl-http
+Requires: %{?scl_prefix}-php-pecl-http-devel
+Requires: %{?scl_prefix}-php-pecl-igbinary
+Requires: %{?scl_prefix}-php-pecl-igbinary-devel
+Requires: %{?scl_prefix}-php-pecl-imagick-im7
+Requires: %{?scl_prefix}-php-pecl-imagick-im7-devel
+Requires: %{?scl_prefix}-php-pecl-inclued
+Requires: %{?scl_prefix}-php-pecl-inotify
+Requires: %{?scl_prefix}-php-pecl-ip2location
+Requires: %{?scl_prefix}-php-pecl-ip2proxy
+Requires: %{?scl_prefix}-php-pecl-ircclient
+Requires: %{?scl_prefix}-php-pecl-json-post
+Requires: %{?scl_prefix}-php-pecl-jsonc
+Requires: %{?scl_prefix}-php-pecl-jsonc-devel
+Requires: %{?scl_prefix}-php-pecl-jsond
+Requires: %{?scl_prefix}-php-pecl-jsond-devel
+Requires: %{?scl_prefix}-php-pecl-judy
+Requires: %{?scl_prefix}-php-pecl-krb5
+Requires: %{?scl_prefix}-php-pecl-krb5-devel
+Requires: %{?scl_prefix}-php-pecl-leveldb
+Requires: %{?scl_prefix}-php-pecl-libsodium
+Requires: %{?scl_prefix}-php-pecl-lua
+Requires: %{?scl_prefix}-php-pecl-luasandbox
+Requires: %{?scl_prefix}-php-pecl-lzf
+Requires: %{?scl_prefix}-php-pecl-mailparse
+Requires: %{?scl_prefix}-php-pecl-memcache
+Requires: %{?scl_prefix}-php-pecl-memcached
+Requires: %{?scl_prefix}-php-pecl-memprof
+Requires: %{?scl_prefix}-php-pecl-mogilefs
+Requires: %{?scl_prefix}-php-pecl-molten
+Requires: %{?scl_prefix}-php-pecl-mongo
+Requires: %{?scl_prefix}-php-pecl-mongodb
+Requires: %{?scl_prefix}-php-pecl-mosquitto
+Requires: %{?scl_prefix}-php-pecl-msgpack
+Requires: %{?scl_prefix}-php-pecl-msgpack-devel
+Requires: %{?scl_prefix}-php-pecl-mustache
+Requires: %{?scl_prefix}-php-pecl-ncurses
+Requires: %{?scl_prefix}-php-pecl-newt
+Requires: %{?scl_prefix}-php-pecl-oauth
+Requires: %{?scl_prefix}-php-pecl-parsekit
+Requires: %{?scl_prefix}-php-pecl-pcs
+Requires: %{?scl_prefix}-php-pecl-pcs-devel
+Requires: %{?scl_prefix}-php-pecl-pcsc
+Requires: %{?scl_prefix}-php-pecl-pdflib
+Requires: %{?scl_prefix}-php-pecl-phk
+Requires: %{?scl_prefix}-php-pecl-pq
+Requires: %{?scl_prefix}-php-pecl-propro
+Requires: %{?scl_prefix}-php-pecl-protobuf
+Requires: %{?scl_prefix}-php-pecl-protocolbuffers
+Requires: %{?scl_prefix}-php-pecl-psr
+Requires: %{?scl_prefix}-php-pecl-quickhash
+Requires: %{?scl_prefix}-php-pecl-radius
+Requires: %{?scl_prefix}-php-pecl-raphf
+Requires: %{?scl_prefix}-php-pecl-rar
+Requires: %{?scl_prefix}-php-pecl-rdkafka4
+Requires: %{?scl_prefix}-php-pecl-redis4
+Requires: %{?scl_prefix}-php-pecl-riak
+Requires: %{?scl_prefix}-php-pecl-rrd
+Requires: %{?scl_prefix}-php-pecl-runkit
+Requires: %{?scl_prefix}-php-pecl-scream
+Requires: %{?scl_prefix}-php-pecl-scrypt
+Requires: %{?scl_prefix}-php-pecl-seasclick
+Requires: %{?scl_prefix}-php-pecl-seaslog
+Requires: %{?scl_prefix}-php-pecl-selinux
+Requires: %{?scl_prefix}-php-pecl-solr2
+Requires: %{?scl_prefix}-php-pecl-sphinx
+Requires: %{?scl_prefix}-php-pecl-spl-types
+Requires: %{?scl_prefix}-php-pecl-ssdeep
+Requires: %{?scl_prefix}-php-pecl-ssh2
+Requires: %{?scl_prefix}-php-pecl-stats
+Requires: %{?scl_prefix}-php-pecl-stomp
+Requires: %{?scl_prefix}-php-pecl-strict
+Requires: %{?scl_prefix}-php-pecl-svn
+Requires: %{?scl_prefix}-php-pecl-sync
+Requires: %{?scl_prefix}-php-pecl-timecop
+Requires: %{?scl_prefix}-php-pecl-trace
+Requires: %{?scl_prefix}-php-pecl-trader
+Requires: %{?scl_prefix}-php-pecl-translit
+Requires: %{?scl_prefix}-php-pecl-uopz
+Requires: %{?scl_prefix}-php-pecl-uploadprogress
+Requires: %{?scl_prefix}-php-pecl-uri-template
+Requires: %{?scl_prefix}-php-pecl-uuid
+Requires: %{?scl_prefix}-php-pecl-varnish
+Requires: %{?scl_prefix}-php-pecl-vld
+Requires: %{?scl_prefix}-php-pecl-weakref
+Requires: %{?scl_prefix}-php-pecl-xattr
+Requires: %{?scl_prefix}-php-pecl-xdebug
+Requires: %{?scl_prefix}-php-pecl-xdiff
+Requires: %{?scl_prefix}-php-pecl-xhprof
+Requires: %{?scl_prefix}-php-pecl-xmldiff
+Requires: %{?scl_prefix}-php-pecl-xmp
+Requires: %{?scl_prefix}-php-pecl-xrange
+Requires: %{?scl_prefix}-php-pecl-xslcache
+Requires: %{?scl_prefix}-php-pecl-xxtea
+Requires: %{?scl_prefix}-php-pecl-yac
+Requires: %{?scl_prefix}-php-pecl-yaf
+Requires: %{?scl_prefix}-php-pecl-yaml
+Requires: %{?scl_prefix}-php-pecl-yar
+Requires: %{?scl_prefix}-php-pecl-yaz
+Requires: %{?scl_prefix}-php-pecl-zip
+Requires: %{?scl_prefix}-php-pecl-zmq
+Requires: %{?scl_prefix}-php-pgsql
+Requires: %{?scl_prefix}-php-phalcon3
+Requires: %{?scl_prefix}-php-phpiredis
+Requires: %{?scl_prefix}-php-phurple
+Requires: %{?scl_prefix}-php-process
+Requires: %{?scl_prefix}-php-pspell
+Requires: %{?scl_prefix}-php-realpath-turbo
+Requires: %{?scl_prefix}-php-recode
+Requires: %{?scl_prefix}-php-smbclient
+Requires: %{?scl_prefix}-php-snappy
+Requires: %{?scl_prefix}-php-snmp
+Requires: %{?scl_prefix}-php-soap
+Requires: %{?scl_prefix}-php-tarantool
+Requires: %{?scl_prefix}-php-tidy
+Requires: %{?scl_prefix}-php-xcache
+Requires: %{?scl_prefix}-php-xml
+Requires: %{?scl_prefix}-php-xmlrpc
+Requires: %{?scl_prefix}-php-zephir-parser
+Requires: %{?scl_prefix}-php-zstd
+Requires: %{?scl_prefix}-unit-php
+Requires: %{?scl_prefix}-xcache-admin
+Requires: %{?scl_prefix}-xhprof
+Requires: %{?scl_prefix}-zephir
+Requires: %{?scl_prefix}-php-suhosin
 
 %description
 This is the main package for %scl Software Collection,
@@ -97,14 +313,67 @@ Summary:   System-wide wrappers for the %{name} package
 Requires:  %{?scl_name}-runtime%{?_isa} = %{version}-%{release}
 Requires:  %{?scl_name}-php-cli%{?_isa}
 Requires:  %{?scl_name}-php-common%{?_isa}
+Requires:  %{?scl_name}-php-devel%{?_isa}
 Conflicts: php-common
 Conflicts: php-cli
+Conflicts: php-devel
 Conflicts: php54-syspaths
 Conflicts: php55-syspaths
 Conflicts: php70-syspaths
 Conflicts: php71-syspaths
 Conflicts: php72-syspaths
 Conflicts: php73-syspaths
+Conflicts: php74-syspaths
+Conflicts: php80-syspaths
+Conflicts: php81-syspaths
+Conflicts: php82-syspaths
+Conflicts: php83-syspaths
+Conflicts: php84-syspaths
+Conflicts: php85-syspaths
+Conflicts: php86-syspaths
+Conflicts: php87-syspaths
+Conflicts: php88-syspaths
+Conflicts: php89-syspaths
+Conflicts: php90-syspaths
+Conflicts: php91-syspaths
+Conflicts: php92-syspaths
+Conflicts: php93-syspaths
+Conflicts: php94-syspaths
+Conflicts: php95-syspaths
+Conflicts: php96-syspaths
+Conflicts: php97-syspaths
+Conflicts: php98-syspaths
+Conflicts: php10-syspaths
+Conflicts: php101-syspaths
+Conflicts: php102-syspaths
+Conflicts: php103-syspaths
+Conflicts: php104-syspaths
+Conflicts: php105-syspaths
+Conflicts: php106-syspaths
+Conflicts: php107-syspaths
+Conflicts: php108-syspaths
+Conflicts: php109-syspaths
+Conflicts: php110-syspaths
+Conflicts: php111-syspaths
+Conflicts: php112-syspaths
+Conflicts: php113-syspaths
+Conflicts: php114-syspaths
+Conflicts: php115-syspaths
+Conflicts: php116-syspaths
+Conflicts: php117-syspaths
+Conflicts: php118-syspaths
+Conflicts: php119-syspaths
+Conflicts: php120-syspaths
+Conflicts: php121-syspaths
+Conflicts: php122-syspaths
+Conflicts: php123-syspaths
+Conflicts: php124-syspaths
+Conflicts: php125-syspaths
+Conflicts: php126-syspaths
+Conflicts: php127-syspaths
+Conflicts: php128-syspaths
+Conflicts: php129-syspaths
+Conflicts: php130-syspaths
 
 %description syspaths
 System-wide wrappers for the %{name}-php-cli package.
@@ -187,13 +456,11 @@ install -d -m 755 %{buildroot}%{_localstatedir}/lib/pear/pkgxml
 %scl_install
 
 # Add the scl_package_override macro
-sed -e 's/@SCL@/%{scl}/g;s:@PREFIX@:/opt/%{scl_vendor}:;s/@VENDOR@/%{scl_vendor}/' %{SOURCE0} \
-  | tee -a %{buildroot}%{_root_sysconfdir}/rpm/macros.%{scl}-config
+sed -e 's/@SCL@/%{scl}/g;s:@PREFIX@:/opt/%{scl_vendor}:;s/@VENDOR@/%{scl_vendor}/' %{SOURCE0} | tee -a %{buildroot}%{_root_sysconfdir}/rpm/macros.%{scl}-config
 
 # Move in correct location, if needed
 if [ "%{_root_sysconfdir}/rpm" != "%{macrosdir}" ]; then
-  mv  %{buildroot}%{_root_sysconfdir}/rpm/macros.%{scl}-config \
-      %{buildroot}%{macrosdir}/macros.%{scl}-config
+  mv  %{buildroot}%{_root_sysconfdir}/rpm/macros.%{scl}-config %{buildroot}%{macrosdir}/macros.%{scl}-config
 fi
 
 %if 0%{?fedora} < 26 && 0%{?rhel} < 8
@@ -212,6 +479,8 @@ mkdir -p %{buildroot}%{_root_bindir}
 ln -s %{_bindir}/php     %{buildroot}%{_root_bindir}/php
 ln -s %{_bindir}/phar    %{buildroot}%{_root_bindir}/phar
 ln -s %{_bindir}/php-cgi %{buildroot}%{_root_bindir}/php-cgi
+ln -s %{_bindir}/php-config %{buildroot}%{_root_bindir}/php-config
+ln -s %{_bindir}/phpize %{buildroot}%{_root_bindir}/phpize
 mkdir -p %{buildroot}%{_root_mandir}/man1
 ln -s %{_mandir}/man1/php.1.gz     %{buildroot}%{_root_mandir}/man1/php.1.gz
 ln -s %{_mandir}/man1/phar.1.gz    %{buildroot}%{_root_mandir}/man1/phar.1.gz
@@ -276,6 +545,8 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 %{_root_bindir}/php
 %{_root_bindir}/phar
 %{_root_bindir}/php-cgi
+%{_root_bindir}/php-config
+%{_root_bindir}/phpize
 %{_root_mandir}/man1/php.1.gz
 %{_root_mandir}/man1/phar.1.gz
 %{_root_mandir}/man1/php-cgi.1.gz
@@ -283,7 +554,7 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 
 %changelog
 * Wed Jun 21 2023 Remi Collet <remi@remirepo.net> 5.6-1
-- define %%scl_vendor and %%_scl_prefix in macros.php56-config
+- define %%scl_vendor and %%_scl_prefix in macros.Requires: %{?scl_prefix}-config
 - redefine %%__phpize and %%__phpconfig
 - move man page out of scl tree
 - improve the man page
@@ -298,7 +569,7 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 - scl-utils 2.0.2 drop modules support
 
 * Mon Aug 28 2017 Remi Collet <remi@remirepo.net> - 2.3-1
-- add symlinks for /etc/opt/remi/php56 and /var/opt/remi/php56
+- add symlinks for /etc/opt/remi/Requires: %{?scl_prefix} and /var/opt/remi/Requires: %{?scl_prefix}
 
 * Fri Mar 17 2017 Remi Collet <remi@remirepo.net> - 2.2-1
 - use rh_layout on F26
@@ -326,7 +597,7 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 - add LD_LIBRARY_PATH in enable script for embedded
 
 * Mon Sep  8 2014 Remi Collet <remi@fedoraproject.org> 2.0-1
-- provides php56-runtime(remi)
+- provides Requires: %{?scl_prefix}-runtime(remi)
 - add _sclreq macro
 
 * Sun Aug 24 2014 Remi Collet <rcollet@redhat.com> 1.0-1
